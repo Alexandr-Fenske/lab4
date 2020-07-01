@@ -1,10 +1,9 @@
+#include <curl/curl.h>
 #include "histogram.h"
 #include <iostream>
 #include <vector>
 #include <sstream>
 #include <string>
-
-#include <curl/curl.h>
 
 
 using namespace std;
@@ -22,7 +21,7 @@ input_numbers(size_t count) {
 */
 
 
-vector<double>
+vector<double> //3.11
 input_numbers(istream& in, size_t count) {
     vector<double> result(count);
     for (size_t i = 0; i < count; i++) {
@@ -32,7 +31,7 @@ input_numbers(istream& in, size_t count) {
 }
 
 
-Input
+Input //3.1.2(1)
 read_input(istream& in, bool prompt) {
     Input data;
 
@@ -67,7 +66,6 @@ download(const string& address) {
     stringstream buffer;
     double namelookup;
 
-    curl_global_init(CURL_GLOBAL_ALL);
     CURL* curl = curl_easy_init();
     if(curl) {
         CURLcode res;
@@ -125,7 +123,7 @@ find_minmax(const vector<double>& numbers, double& min, double& max){
     return;
 }
 
-vector<size_t>
+vector<size_t> //3.1.2(2)
 make_histogram(const Input input){
     vector<size_t> bins(input.bin_count, 0);
     double min, max;

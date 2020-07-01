@@ -1,16 +1,15 @@
+#include <curl/curl.h>
 #include <iostream>
 #include <vector>
 #include "histogram.h"
 #include "svg.h"
-#include <curl/curl.h>
 
-#include <sys/utsname.h>
 
 using namespace std;
 
 
 int main(int argc, char* argv[]){
-
+    curl_global_init(CURL_GLOBAL_ALL);
     Input input;
 
     if (argc > 1) {

@@ -4,7 +4,7 @@
 #include <sstream>
 #include <string>
 
-#include <sys/utsname.h>
+
 
 using namespace std;
 
@@ -39,17 +39,7 @@ svg_end() {
 
 string
 make_info_text() {
-
-//Windows v5.1 (build 1234)
-//Computer name: My-Comp
-
-    stringstream buffer;
-    struct utsname namesys;
-    uname(&namesys);
-    buffer << namesys.sysname << " ( " << namesys.version << " ) | ";
-    buffer << "Computer name: " << namesys.nodename;
-
-    return buffer.str();
+    return "";
 }
 
 
